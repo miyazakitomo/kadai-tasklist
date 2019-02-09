@@ -4,8 +4,13 @@
     のタスク詳細ページ
 </h1>
 <P>
+    タスク:
     <%= @task.content %>
 </P>
+<p>
+    現状:
+    <%= @task.status %>
+</p>
 
 <%= link_to '一覧に戻る', tasks_path %>
 
