@@ -2,7 +2,7 @@ class TasksController < ApplicationController
     before_action :set_task, only: [:show, :edit, :update, :destroy]
     
     def index
-        @tasks = Task.all
+        @tasks = Task.all.page(params[:page])
     end
     
     def show
@@ -45,7 +45,10 @@ class TasksController < ApplicationController
         redirect_to tasks_url
     end
     
-    private
+    
+end
+
+private
 
     def set_task
         @task = Task.find(params[:id])
@@ -54,5 +57,4 @@ class TasksController < ApplicationController
     def task_params
         params.require(:task).permit(:content, :status)
     end
-end
 
